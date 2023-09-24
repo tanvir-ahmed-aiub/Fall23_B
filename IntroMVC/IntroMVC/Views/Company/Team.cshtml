@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Team";
+}
+<a class="btn btn-primary" href="/">Home</a>
+<a class="btn btn-success" href="/company/projects">Projects</a>
+<a class="btn btn-danger" href="/company/team">Team</a>
+
+<h2>Team</h2>
+
+<ul>
+    @foreach (var n in Model) { 
+        <li>@n</li>
+    }
+</ul>

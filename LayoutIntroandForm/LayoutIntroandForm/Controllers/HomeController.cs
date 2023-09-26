@@ -8,23 +8,25 @@ namespace LayoutIntroandForm.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home
         public ActionResult Index()
         {
+            
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
+        public ActionResult About() {
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+        public ActionResult Login() {
             return View();
+        }
+        public ActionResult LoginSubmit() {
+            //validation
+            //authentication
+            TempData["msg"] = "Login Successfull";
+            //return Redirect("https://www.aiub.edu");
+            return RedirectToAction("Index","Dashboard");
+            
         }
     }
 }

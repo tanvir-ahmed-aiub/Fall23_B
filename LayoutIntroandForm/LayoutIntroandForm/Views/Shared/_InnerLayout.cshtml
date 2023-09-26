@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+        <div>
+            <a class="btn btn-primary" href="/Dashboard/index">Dashboard</a>
+            <a class="btn btn-success" href="/Dashboard/Students">Students</a>
+            <a class="btn btn-warning" href="/Dashboard/Teacher">Teachers</a>
+            <a class="btn btn-danger" href="">Logout</a>
+        </div>
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

@@ -14,6 +14,8 @@ namespace IntroMVC.Controllers
         public ActionResult Index()
         {
             Company c = new Company();
+            c.Id = 1;
+
             c.Name = "ABC Company";
             c.Address = "Dhaka, Bangladesh";
             c.Email = "abc@xyz.com";

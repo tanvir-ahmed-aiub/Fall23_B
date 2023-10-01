@@ -4,9 +4,17 @@
     Layout = "~/Views/Shared/_OuterLayout.cshtml";
 }
 
+<h2>
+    @*@ViewBag.Uname
+    @ViewBag.Pass*@
+    @if (Model != null)
+    { @Model.Username
+    @Model.Password
+    }
+</h2>
 <h2>Login</h2>
-<form>
-    <input type="text" class="form-control" placeholder="Username" />
-    <input type="password" class="form-control" placeholder="Password" />
-    <a href="/Home/LoginSubmit" class="btn btn-success"> Login</a>
+<form action="" method="post">
+    <input type="text" class="form-control" name="Username" placeholder="Username" />
+    <input type="password" class="form-control" name="Password" placeholder="Password" />
+    <input type="submit" value="Login" class="btn btn-danger" />
 </form>

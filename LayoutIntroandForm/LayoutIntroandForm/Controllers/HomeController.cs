@@ -44,5 +44,17 @@ namespace LayoutIntroandForm.Controllers
             return RedirectToAction("Index","Dashboard");
             
         }
+        [HttpGet]
+        public ActionResult SignUp() {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SignUp(SignUp s) {
+            if (ModelState.IsValid) {
+                
+                return RedirectToAction("Login");
+            }
+            return View(s);
+        }
     }
 }

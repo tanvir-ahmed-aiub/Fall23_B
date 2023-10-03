@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_OuterLayout.cshtml";
+}
+@{ 
+    bool CheckGender(string gender) {
+        if (Model != null && Model.Gender != null &&
+            Model.Gender.Equals(gender)) {
+            return true;
+        }
+        return false;
+    }
+    bool CheckHobbies(string hobby) {
+        if (Model != null &&  Model.Hobbies != null)
+        {
+            foreach (var h in Model.Hobbies) {
+                if (h.Equals(hobby)) return true;
+            }
+        }
+        return false;
+    }
+}
+
+<h2>SignUp</h2>
+@Html.ValidationSummary()
+
+<form action="" method="post">
+    Name : <input type="text" value="@(Model==null ? "":Model.Name)" name="Name" /><br />
+    <span class="text-danger">@Html.ValidationMessage("Name")</span>
+    <br />
+    Gender: <input type="radio" checked="@CheckGender("Male")"  name="Gender" value="Male" /> Male
+    <input type="radio" checked="@CheckGender("Female")" name="Gender" value="Female" /> Female
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("Gender")</span>
+    <br />
+    Profession:
+    <select name="Profession">
+        <option selected disabled>---Select---</option>
+        <option value="1">Teacher</option>
+        <option value="2">Student</option>
+        <option value="3">Business</option>
+    </select>
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("Profession")</span>
+    <br />
+    Hobbies:
+    <input type="checkbox" checked="@CheckHobbies("Music")" name="Hobbies[]" value="Music" /> Music
+    <input type="checkbox" checked="@CheckHobbies("Travelling")"name="Hobbies[]" value="Travelling" /> Travelling
+    <input type="checkbox" checked="@CheckHobbies("Sports")" name="Hobbies[]" value="Sports" /> Sports
+    <input type="checkbox" checked="@CheckHobbies("Gaming")" name="Hobbies[]" value="Gaming" /> Gaming
+
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("Hobbies")</span>
+    <br />
+    <input type="submit" value="Sign Up" />
+</form>

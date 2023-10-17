@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DemoFall23_BModelStoreContainer" CdmEntityContainer="DemoFall23_BEntities">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="DemoFall23_BModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="DemoFall23_BModel.Department">
         <MappingFragment StoreEntitySet="Departments">
@@ -12,9 +22,19 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="DemoFall23_BModel.Student">
         <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Cgpa" ColumnName="Cgpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseStudents">
+      <EntityTypeMapping TypeName="DemoFall23_BModel.CourseStudent">
+        <MappingFragment StoreEntitySet="CourseStudents">
+          <ScalarProperty Name="CId" ColumnName="CId" />
+          <ScalarProperty Name="StId" ColumnName="StId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

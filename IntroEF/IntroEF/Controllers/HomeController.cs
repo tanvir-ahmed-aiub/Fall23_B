@@ -16,6 +16,18 @@ namespace IntroEF.Controllers
             return View(data);
 
         }
+        public ActionResult Details(int id) {
+
+            var db = new DemoFall23_BEntities();
+            var data = db.Departments.Find(id);
+            //ViewBag.Students = (from s in db.Students
+            //                   where s.DeptId == id
+            //                   select s).ToList();
+            //ViewBag.Courses = (from c in db.Courses
+            //                   where c.DeptId == id
+            //                   select c).ToList();
+            return View(data);
+        }
         [HttpGet]
         public ActionResult Create() { 
             return View();

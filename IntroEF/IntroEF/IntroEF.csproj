@@ -129,6 +129,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="EF\Cours.cs">
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CourseStudent.cs">
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Department.cs">
       <DependentUpon>UMS.tt</DependentUpon>
     </Compile>
@@ -162,8 +169,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="EF\UMS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UMS.Context.cs</LastGenOutput>
       <DependentUpon>UMS.edmx</DependentUpon>
+      <LastGenOutput>UMS.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EF\UMS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -210,6 +217,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

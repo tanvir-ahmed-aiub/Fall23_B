@@ -18,6 +18,7 @@ namespace IntroEF.EF
         public DemoFall23_BEntities()
             : base("name=DemoFall23_BEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,5 +29,6 @@ namespace IntroEF.EF
         public virtual DbSet<Cours> Courses { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<CourseStudent> CourseStudents { get; set; }
     }
 }

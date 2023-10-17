@@ -5,9 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3df4ac68adf844598d6048fa43b52adb" Name="Diagram1">
-        <EntityTypeShape EntityType="DemoFall23_BModel.Cours" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoFall23_BModel.Department" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemoFall23_BModel.Student" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoFall23_BModel.Cours" Width="1.5" PointX="6.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoFall23_BModel.Department" Width="1.5" PointX="2.375" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoFall23_BModel.Student" Width="1.5" PointX="4.875" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoFall23_BModel.CourseStudent" Width="1.5" PointX="7.5" PointY="3.875" />
+        <AssociationConnector Association="DemoFall23_BModel.FK_Courses_Departments" />
+        <AssociationConnector Association="DemoFall23_BModel.FK_CourseStudents_Courses" />
+        <AssociationConnector Association="DemoFall23_BModel.FK_CourseStudents_Students" />
+        <AssociationConnector Association="DemoFall23_BModel.FK_Students_Departments" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

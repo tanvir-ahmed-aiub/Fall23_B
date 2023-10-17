@@ -1,11 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DemoFall23_BModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeptId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="DemoFall23_BModel.FK_Courses_Departments" FromRole="Cours" ToRole="Department" />
+    <NavigationProperty Name="CourseStudents" Relationship="DemoFall23_BModel.FK_CourseStudents_Courses" FromRole="Cours" ToRole="CourseStudent" />
+  </EntityType>
   <EntityType Name="Department">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Courses" Relationship="DemoFall23_BModel.FK_Courses_Departments" FromRole="Department" ToRole="Cours" />
+    <NavigationProperty Name="Students" Relationship="DemoFall23_BModel.FK_Students_Departments" FromRole="Department" ToRole="Student" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -14,9 +27,88 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Cgpa" Type="Double" Nullable="false" />
+    <Property Name="DeptId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CourseStudents" Relationship="DemoFall23_BModel.FK_CourseStudents_Students" FromRole="Student" ToRole="CourseStudent" />
+    <NavigationProperty Name="Department" Relationship="DemoFall23_BModel.FK_Students_Departments" FromRole="Student" ToRole="Department" />
   </EntityType>
   <EntityContainer Name="DemoFall23_BEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="Self.Cours" />
     <EntitySet Name="Departments" EntityType="Self.Department" />
     <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="CourseStudents" EntityType="DemoFall23_BModel.CourseStudent" />
+    <AssociationSet Name="FK_Courses_Departments" Association="DemoFall23_BModel.FK_Courses_Departments">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseStudents_Courses" Association="DemoFall23_BModel.FK_CourseStudents_Courses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="CourseStudent" EntitySet="CourseStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseStudents_Students" Association="DemoFall23_BModel.FK_CourseStudents_Students">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="CourseStudent" EntitySet="CourseStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_Departments" Association="DemoFall23_BModel.FK_Students_Departments">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="CourseStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="StId" Type="Int32" Nullable="false" />
+    <Property Name="CId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="DemoFall23_BModel.FK_CourseStudents_Courses" FromRole="CourseStudent" ToRole="Cours" />
+    <NavigationProperty Name="Student" Relationship="DemoFall23_BModel.FK_CourseStudents_Students" FromRole="CourseStudent" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_Courses_Departments">
+    <End Type="DemoFall23_BModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="DemoFall23_BModel.Cours" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseStudents_Courses">
+    <End Type="DemoFall23_BModel.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="DemoFall23_BModel.CourseStudent" Role="CourseStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseStudent">
+        <PropertyRef Name="CId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseStudents_Students">
+    <End Type="DemoFall23_BModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="DemoFall23_BModel.CourseStudent" Role="CourseStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseStudent">
+        <PropertyRef Name="StId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_Departments">
+    <End Type="DemoFall23_BModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="DemoFall23_BModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

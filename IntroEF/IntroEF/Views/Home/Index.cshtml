@@ -10,12 +10,14 @@
         <th>Id</th>
         <th>Name</th>
         <th></th>
+        <th></th>
     </tr>
     @foreach (var d in Model) { 
         <tr>
             <td>@d.Id</td>
             <td>@d.Name</td>
             <td><a class="btn btn-primary" href="/home/edit/@d.Id">Edit</a></td>
+            <td><a class="btn btn-primary" href="/home/details/@d.Id">Details</a></td>
         </tr>
     }
 </table>

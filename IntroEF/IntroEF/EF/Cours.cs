@@ -14,8 +14,19 @@ namespace IntroEF.EF
     
     public partial class Cours
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cours()
+        {
+            this.CourseStudents = new HashSet<CourseStudent>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string CourseCode { get; set; }
+        public int DeptId { get; set; }
+    
+        public virtual Department Department { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CourseStudent> CourseStudents { get; set; }
     }
 }

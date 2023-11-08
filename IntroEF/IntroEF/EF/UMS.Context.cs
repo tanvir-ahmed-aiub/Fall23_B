@@ -18,7 +18,6 @@ namespace IntroEF.EF
         public DemoFall23_BEntities()
             : base("name=DemoFall23_BEntities")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

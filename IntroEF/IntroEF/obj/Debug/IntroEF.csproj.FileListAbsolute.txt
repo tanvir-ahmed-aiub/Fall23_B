@@ -81,3 +81,5 @@ C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroEF\IntroEF\obj\Debug\IntroEF.csproj.Co
 C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroEF\IntroEF\obj\Debug\IntroEF.csproj.CopyComplete
 C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroEF\IntroEF\obj\Debug\IntroEF.dll
 C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroEF\IntroEF\obj\Debug\IntroEF.pdb
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroEF\IntroEF\bin\AutoMapper.dll
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroEF\IntroEF\bin\AutoMapper.xml

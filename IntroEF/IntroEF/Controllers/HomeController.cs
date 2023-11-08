@@ -63,7 +63,12 @@ namespace IntroEF.Controllers
             return RedirectToAction("Index");
 
         }
-
+        public ActionResult Login() {
+            //form valiate
+            //authentication
+            Session["user"] = "Tanvir";
+            return RedirectToAction("Index", "Student");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

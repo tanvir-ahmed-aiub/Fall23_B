@@ -65,3 +65,7 @@ C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\obj\Debug\IntroAPI.csproj
 C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\obj\Debug\IntroAPI.csproj.CopyComplete
 C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\obj\Debug\IntroAPI.dll
 C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\obj\Debug\IntroAPI.pdb
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\bin\EntityFramework.dll
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\bin\EntityFramework.xml
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\IntroAPI\IntroAPI\bin\EntityFramework.SqlServer.xml

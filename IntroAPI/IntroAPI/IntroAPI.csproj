@@ -43,8 +43,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -80,12 +88,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EF\UMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UMS.Context.cs</LastGenOutput>
+      <DependentUpon>UMS.edmx</DependentUpon>
+    </Content>
+    <Content Include="EF\UMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UMS.edmx</DependentUpon>
+      <LastGenOutput>UMS.cs</LastGenOutput>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="EF\Cours.cs">
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\CourseStudent.cs">
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Department.cs">
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Student.cs">
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UMS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UMS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UMS.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,6 +139,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="EF\UMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EF\UMS.edmx.diagram">
+      <DependentUpon>UMS.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -103,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

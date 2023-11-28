@@ -1,0 +1,13 @@
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\ConsoleAppLayer.exe.config
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\ConsoleAppLayer.exe
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\ConsoleAppLayer.pdb
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\BLL.dll
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\DAL.dll
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\BLL.pdb
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\bin\Debug\DAL.pdb
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\obj\Debug\ConsoleAppLayer.csproj.AssemblyReference.cache
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\obj\Debug\ConsoleAppLayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\obj\Debug\ConsoleAppLayer.csproj.CoreCompileInputs.cache
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\obj\Debug\ConsoleAppLayer.csproj.CopyComplete
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\obj\Debug\ConsoleAppLayer.exe
+C:\Users\Tanvir Ahmed\Desktop\.NET\B\AppLayerAPI\ConsoleAppLayer\obj\Debug\ConsoleAppLayer.pdb

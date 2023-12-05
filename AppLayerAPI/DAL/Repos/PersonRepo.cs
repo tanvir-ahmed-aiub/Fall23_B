@@ -1,5 +1,6 @@
 ﻿using DAL.EF;
 using DAL.EF.Models;
+using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,38 +9,37 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-    public class PersonRepo 
+    internal class PersonRepo : Repo, IRepo<Person, int, bool>
     {
-        public static List<Person> Get() {
-            //all person
-            var db = new PContext();
-            return db.Persons.ToList();
+        public bool Create(Person obj)
+        {
+            db.Persons.Add(obj);
+            return db.SaveChanges() > 0;
         }
-        public static Person Get(int id) {
-            //id person get
-            var db = new PContext();
-            return db.Persons.Find(id);
-        }
-        public static void Create(Person person) {
-            //insert
-            var db = new PContext();
-            db.Persons.Add(person);
-            db.SaveChanges();
-        }
-        public static void Update(Person person) {
-            //update
-            var db = new PContext();
-            var ex = db.Persons.Find(person.Id);
-            db.Entry(ex).CurrentValues.SetValues(person);
-            db.SaveChanges();
-        }
-        public static bool Delete(int id) {
-            //delete
-            var db = new PContext();
-            var ex = db.Persons.Find(id);
+
+        public bool Delete(int id)
+        {
+            var ex = Get(id);
             db.Persons.Remove(ex);
             return db.SaveChanges() > 0;
         }
 
+        public List<Person> Get()
+        {
+            return db.Persons.ToList();
+        }
+
+        public Person Get(int id)
+        {
+            return db.Persons.Find(id);
+        }
+
+        public bool Update(Person obj)
+        {
+            var ex = Get(obj.Id);
+            db.Entry(ex).CurrentValues.SetValues(obj);
+            return db.SaveChanges() > 0;
+
+        }
     }
 }
